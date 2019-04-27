@@ -46,6 +46,18 @@ body {
     font-size: 20px;
 }
 
+.message {
+    margin-bottom: 10px
+}
+
+.input-phrase {
+    color: rgb(232, 191, 106);
+}
+
+.text-to-show {
+    color: rgb(204, 120, 50);
+}
+
 .start-audio-recording {
     border: 8px solid white;
     -webkit-border-radius: 17px;
