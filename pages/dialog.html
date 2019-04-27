@@ -20,7 +20,7 @@
     <script src="../js/record.js"></script>
     <script>
         function start() {
-            fetch('/start', {method: 'GET'})
+            fetch('/back/start', {method: 'GET'})
                 .then(response => response.body())
                 .then(playSound)
         }
@@ -32,10 +32,10 @@
         }
 
         function onRecordedVoiceObtained(blob) {
-            fetch('/voice', {method: 'POST', credentials: 'include', body: blob})
+            fetch('/back/voice', {method: 'POST', credentials: 'include', body: blob})
                 .then(response => response.body())
                 .then(playSound)
-            fetch('/get_text', {method: 'GET', credentials: 'include'})
+            fetch('/back/get_text', {method: 'GET', credentials: 'include'})
                 .then(response => response.json())
                 .then(addDialogMessage)
         }
@@ -69,7 +69,7 @@
         }
     </script>
 </head>
-<body>
+<body onload="start()">
 <div class="app">
     <h1>Болталка</h1>
     <p>Для записи голоса нажимайте на кнопку микрофона</p>
@@ -80,12 +80,5 @@
 
     <div id="dialog"></div>
 </div>
-<script>
-    console.log('appending...')
-    addDialogMessage({
-        input_phrase: 'Привет, я Гоша!',
-        text_to_show: 'А я - Алтая'
-    })
-</script>
 </body>
 </html>
