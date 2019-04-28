@@ -25,8 +25,46 @@
     <div class="container">
         <h1>Ваше имя</h1>
         <p>Введите ваше ФИО и нажмите Отправить</p>
-        <input class="form-control input"/>
-        <button id="user_name" onclick="sendName()" class="btn button" style="margin-top: 10px">Отправить</button>
+        <input id="user_name" class="form-control input" value="Гоша"/>
+        <button id="register_user_name" onclick="sendName()" class="btn button" style="margin-top: 10px">Отправить</button>
+    </div>
+
+    <div class="container">
+        <h1>Контрольные слова</h1>
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="word1">Слово 1:</label>
+                    <input type="text" class="form-control input control-word" id="word1" value="овца">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="word2">Слово 2:</label>
+                    <input type="text" class="form-control input control-word" id="word2" value="попугай">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="word3">Слово 3:</label>
+                    <input type="text" class="form-control input control-word" id="word3" value="трактор">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="word4">Слово 4:</label>
+                    <input type="text" class="form-control input control-word" id="word4" value="поросенок">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="word5">Слово 5:</label>
+                    <input type="text" class="form-control input control-word" id="word5" value="лес">
+                </div>
+            </div>
+        </div>
+        <button id="send_control_words" onclick="sendControlWords()" class="btn button" style="margin-top: 10px">Отправить
+        </button>
     </div>
 
     <div class="container">
@@ -50,30 +88,9 @@
         </div>
     </div>
 
-    <div class="container">
-        <h1>Контрольные слова</h1>
-        <div class="form-group">
-            <label for="word1">Контрольное слово 1:</label>
-            <input type="text" class="form-control input" id="word1">
-        </div>
-        <div class="form-group">
-            <label for="word2">Контрольное слово 2:</label>
-            <input type="text" class="form-control input" id="word2">
-        </div>
-        <div class="form-group">
-            <label for="word3">Контрольное слово 3:</label>
-            <input type="text" class="form-control input" id="word3">
-        </div>
-        <div class="form-group">
-            <label for="word4">Контрольное слово 4:</label>
-            <input type="text" class="form-control input" id="word4">
-        </div>
-        <div class="form-group">
-            <label for="word5">Контрольное слово 5:</label>
-            <input type="text" class="form-control input" id="word5">
-        </div>
-        <button id="control_words" onclick="sendControlWords()" class="btn button" style="margin-top: 10px">Отправить</button>
-
+    <div id="system_code_container" class="container" style="display: none">
+        <h1>Ваш SYSTEM_CODE</h1>
+        <p id="system_code" class="system_code"></p>
     </div>
 </div>
 <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->

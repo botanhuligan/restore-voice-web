@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Key-Value Storage Eth Client</title>
+	<meta charset="utf-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- The required libraries -->
+    <script src="../lib/ethereumjs-wallet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.2.1/bignumber.min.js"></script>
+    <script src="../lib/ethereumjs-tx-1.3.3.min.js"></script>
+    <script src="../lib/_web3.min.js"></script>
+    <script src="../js/smart-contract-config.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <h3>Add Key Pair</h3>
+      <form id="add">
+        <input id="key" type="text" class="form-control" placeholder="Key"><br>
+        <input id="value" type="text" class="form-control" placeholder="Value"><br>
+        <br /><br />
+        <button type="submit" class="btn btn-success">SUBMIT</button>
+      </form>
+
+	<h3>Get value by key</h3>
+     <form id="get">
+        <input id="keyget" type="text" class="form-control" placeholder="Key"><br>
+        <br /><br />
+        <button type="submit" class="btn btn-success">Get</button>
+      </form>
+
+      <br />
+      <div id="txhash"></div>
+      <br />
+      <div id="txreport"></div>
+    </div>
+
+    <script src="../js/dapp.js"></script>
+    <script>
+
+      $("#add").submit(e => {
+        e.preventDefault()
+
+        let key = $("#key").val().trim()
+        let value = $("#value").val().trim()
+
+        addKeyValue(key, value).then(report => {
+          console.log('Add pair OK')
+        }).catch((...args) => {
+          alert(args)
+          console.log(args)
+        })
+
+      })
+
+      $("#get").submit(e => {
+        e.preventDefault()
+
+        let key = $("#keyget").val().trim()
+
+        getValue(key).then(report => {
+
+          console.log('Get result '+report)
+          $("#txreport").html(`<pre>${JSON.stringify(report, true, 4)}</pre>`)
+
+        }).catch((...args) => {
+          alert(args)
+          console.log(args)
+        })
+
+      })
+
+    </script>
+  </body>
+</html>

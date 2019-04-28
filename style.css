@@ -42,6 +42,20 @@ body {
     box-shadow: none;
 }
 
+.input[disabled] {
+    background-color: rgba(232, 191, 106, 0.2);;
+}
+
+.control-word {
+    width: 150px;
+}
+
+.system_code {
+    color: rgb(104, 151, 187);
+    font-size: 35px;
+    font-weight: bold;
+}
+
 .button {
     color: rgb(216, 216, 216);
     border-color: rgb(232, 191, 106);
