@@ -111,5 +111,5 @@ function playSound(data) {
 function showSysCode(sysCode) {
     $('#system_code_container').show()
     $('#system_code')[0].innerHTML = sysCode
-    $('#recovery_href').attr('href', 'smart.html?sys_code=' + sysCode)
+    $('#recovery_href').attr('href', 'smart-save.html?sys_code=' + sysCode)
 }

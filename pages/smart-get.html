@@ -29,7 +29,7 @@
 
     <script type="text/javascript" src="../js/smart-contract-config.js"></script>
     <script type="text/javascript" src="../js/dapp.js"></script>
-    <script type="text/javascript" src="../js/smart-save.js"></script>
+    <script type="text/javascript" src="../js/smart.js"></script>
     <script>
         function fillSysCodeFromParams() {
             const sys_code = getUrlVars()['sys_code']
@@ -42,7 +42,7 @@
 <body onload="fillSysCodeFromParams()">
 <div class="app">
     <div class="container">
-        <h1>Сохранение ключа в зашифрованном виде в блокчейне</h1>
+        <h1>Восстановление сохраненного ключа</h1>
 
         <div class="row">
             <div class="col">
@@ -74,19 +74,12 @@
     </div>
 
     <div class="container">
-        <div class="form-group">
-            <label for="pk">PRIVATE_KEY</label>
-            <input oninput="aesPrivateKey()" type="text" class="form-control input" id="pk">
-        </div>
-        <span>aes(PRIVATE_KEY, PASS): </span>
-        <span class="hash" id="aes_pk"></span>
-
-        <div>
-            <button id="save_to_blockchain" onclick="saveKeyInBlockchain()" class="btn button" style="margin-top: 10px">
-                Сохранить в блокчейне
-            </button>
-        </div>
+        <button id="save_to_blockchain" onclick="restoreKeyFromBlockchain()" class="btn button">
+            Восстановить ключ
+        </button>
+        <p id="private_key" class="system_code"></p>
     </div>
+
 </div>
 <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
 
