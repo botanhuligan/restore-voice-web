@@ -1,3 +1,12 @@
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
 function countHashCode() {
     const systemCode = $('#system_code').val()
     const hashSystemCode = CryptoJS.SHA256(systemCode)

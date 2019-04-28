@@ -30,8 +30,16 @@
     <script type="text/javascript" src="../js/smart-contract-config.js"></script>
     <script type="text/javascript" src="../js/dapp.js"></script>
     <script type="text/javascript" src="../js/smart-save.js"></script>
+    <script>
+        function fillSysCodeFromParams() {
+            const sys_code = getUrlVars()['sys_code']
+            if (sys_code) {
+                $('#system_code').val(sys_code)
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="fillSysCodeFromParams()">
 <div class="app">
     <div class="container">
         <h1>Сохранение ключа в зашифрованном виде в блокчейне</h1>

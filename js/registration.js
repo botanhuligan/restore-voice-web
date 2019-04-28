@@ -66,8 +66,7 @@ function onVoiceObtained(blob) {
                     response.json()
                         .then(resp => {
                             console.log('Получили системный код')
-                            $('#system_code_container').show()
-                            $('#system_code')[0].innerHTML = resp['gen_secret']
+                            showSysCode(resp['gen_secret'])
                         })
                 } else {
                     handleVoiceResponse(response).then(playSound)
@@ -107,4 +106,10 @@ function playSound(data) {
     sound.play();
     audio = document.getElementById('audio');
     audio.parentNode.removeChild(audio);
+}
+
+function showSysCode(sysCode) {
+    $('#system_code_container').show()
+    $('#system_code')[0].innerHTML = sysCode
+    $('#recovery_href').attr('href', 'smart.html?sys_code=' + sysCode)
 }
