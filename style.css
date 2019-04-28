@@ -16,6 +16,21 @@ body {
     color: rgb(186, 186, 164);
 }
 
+.header {
+    background-color: rgb(108, 108, 108);
+    text-align: center;
+}
+
+.header2 {
+    font-size: 25px;
+    color: rgb(200, 200, 200);
+}
+
+.title {
+    font-size: 50px;
+    color: rgb(232, 191, 106);
+}
+
 .container {
     margin-bottom: 40px !important;
 }
@@ -57,7 +72,6 @@ body {
 }
 
 .button {
-    color: rgb(216, 216, 216);
     border-color: rgb(232, 191, 106);
     background-color: rgb(232, 191, 106);
 }

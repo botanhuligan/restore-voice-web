@@ -20,9 +20,12 @@
     <script src="../js/record.js"></script>
     <script src="../js/dialog.js"></script>
 </head>
-<body onload="start()">
+<body>
+<div class="header">
+    <div class="title">KOSCHAI</div>
+    <div class="header2">Виртуальный помощник с голосовой биометрической двухфакторной аутентификацией</div>
+</div>
 <div class="app">
-    <h1>Болталка</h1>
     <p>Для записи голоса нажимайте на кнопку микрофона</p>
 
     <button id="recordButton" class="start-audio-recording" onclick="onRecordStart()"></button>
@@ -35,5 +38,8 @@
 
     <div id="dialog"></div>
 </div>
+<script>
+    start()
+</script>
 </body>
 </html>

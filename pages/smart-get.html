@@ -47,28 +47,28 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="system_code">SYS_CODE</label>
+                    <label for="system_code">SHARED_KEY</label>
                     <input oninput="countHashCode()" type="text" class="form-control input" id="system_code">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="user_code">USER_CODE</label>
+                    <label for="user_code">OWN_KEY</label>
                     <input oninput="countHashCode()" type="text" class="form-control input" id="user_code">
                 </div>
             </div>
         </div>
 
         <div>
-            <span>hash(SYS_CODE): </span>
+            <span>hash(SHARED_KEY): </span>
             <span class="hash" id="hash_system_code"></span>
         </div>
         <div>
-            <span>hash(SYS_CODE): </span>
+            <span>hash(SHARED_KEY): </span>
             <span class="hash" id="hash_user_code"></span>
         </div>
         <div>
-            <span>PASS = hash( hash(SYS_CODE) + hash(USER_CODE) ): </span>
+            <span>PASS = hash( hash(SHARED_KEY) + hash(OWN_KEY) ): </span>
             <span class="hash" id="hash_code"></span>
         </div>
     </div>

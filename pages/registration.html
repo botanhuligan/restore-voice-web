@@ -21,6 +21,10 @@
     <script src="../js/registration.js"></script>
 </head>
 <body>
+<div class="header">
+    <div class="title">KOSCHAI</div>
+    <div class="header2">Виртуальный помощник с голосовой биометрической двухфакторной аутентификацией</div>
+</div>
 <div class="app">
     <div class="container">
         <h1>Ваше имя</h1>
@@ -69,14 +73,13 @@
 
     <div class="container">
         <h1>Запись голоса</h1>
+        <p>Для биометрической авторизации понадобится образец Вашего голоса.</p>
         <p>Нажмите значок микрофона и произнесите следующюю фразу:</p>
 
         <button id="recordButton" class="start-audio-recording" onclick="onRecordStart()"></button>
         <button id="stopButton" class="stop-audio-recording" onclick="onRecordStop()"
                 style="display: none"></button>
-        <p class="text-to-read" style="display: inline; margin-left: 20px">На шишкосушильную фабрику требуется
-            шишкосушильщик для работы на
-            шишкосушильном аппарате</p>
+        <p class="text-to-read" style="display: inline; margin-left: 20px">Соломон нам оставил два мудрых совета: убегай от тоски и с глупцами не спорь</p>
 
         <div style="margin-top: 10px">
             <audio id="audio" style="display: none"></audio>
@@ -89,7 +92,7 @@
     </div>
 
     <div id="system_code_container" class="container" style="display: none">
-        <h1>Ваш SYS_CODE</h1>
+        <h1>Ваш SHARED_KEY</h1>
         <p id="system_code" class="system_code"></p>
         <p>Для регистрации процесса восстановления своего приватного ключа
             <a id="recovery_href" href="smart-save.html">перейдите по ссылке</a>

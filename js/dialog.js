@@ -5,6 +5,9 @@ function start() {
     })
         .then(handleVoiceResponse)
         .then(playSound)
+        .catch(err => {
+            console.error(err)
+        })
 }
 
 function onRecordStart() {
@@ -66,7 +69,14 @@ function playSound(data) {
     const blob = new Blob([data.value], {type: 'audio/mp3'});
     let url = URL.createObjectURL(blob);
     console.log('url of sound to play: ' + url);
-    let sound = document.createElement('audio');
+    let sound = $('#audio')[0];
+    sound.controls = true
     sound.src = url;
-    sound.play();
+    setTimeout(() => {
+        try {
+            sound.play();
+        } catch (e) {
+            console.log("can't play sound: ", e)
+        }
+    }, 1000)
 }

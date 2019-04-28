@@ -47,40 +47,46 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="system_code">SYS_CODE</label>
+                    <label for="system_code">SHARED_KEY</label>
                     <input oninput="countHashCode()" type="text" class="form-control input" id="system_code">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="user_code">USER_CODE</label>
+                    <label for="user_code">OWN_KEY</label>
                     <input oninput="countHashCode()" type="text" class="form-control input" id="user_code">
                 </div>
             </div>
         </div>
 
         <div>
-            <span>hash(SYS_CODE): </span>
+            <span>hash(SHARED_KEY): </span>
             <span class="hash" id="hash_system_code"></span>
         </div>
         <div>
-            <span>hash(USER_CODE): </span>
+            <span>hash(OWN_KEY): </span>
             <span class="hash" id="hash_user_code"></span>
         </div>
         <div>
-            <span>PASS = hash( hash(SYS_CODE) + hash(USER_CODE) ): </span>
+            <span>PASS = hash( hash(SHARED_KEY) + hash(OWN_KEY) ): </span>
             <span class="hash" id="hash_code"></span>
         </div>
     </div>
 
     <div class="container">
         <div class="form-group">
-            <label for="pk">PRIVATE_KEY</label>
+            <label for="pk">WALLET_PRIVATE_KEY</label>
             <input oninput="aesPrivateKey()" type="text" class="form-control input" id="pk">
         </div>
-        <span>aes(PRIVATE_KEY, PASS): </span>
+        <span>WALLET_PRIVATE_KEY, зашифрованный AES с ключом PASS: </span>
         <span class="hash" id="aes_pk"></span>
 
+        <div>
+            <span>Зашифрованный WALLET_PRIVATE_KEY будет сохранен в смарт-контракте по ключу hash(OWN_KEY)</span>
+        </div>
+        <div>
+            <span>При утере WALLET_PRIVATE_KEY его можно будет восстановить, пройдя биометрическую авторизацию голосом в сервисе KOSHAI</span>
+        </div>
         <div>
             <button id="save_to_blockchain" onclick="saveKeyInBlockchain()" class="btn button" style="margin-top: 10px">
                 Сохранить в блокчейне

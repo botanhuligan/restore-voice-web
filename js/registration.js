@@ -100,12 +100,12 @@ function playSound(data) {
     const blob = new Blob([data.value], {type: 'audio/mp3'});
     let url = URL.createObjectURL(blob);
     console.log('url of sound to play: ' + url);
-    let sound = document.createElement('audio');
+    let sound = $('#audio')[0];
     sound.id = "audio"
     sound.src = url;
     sound.play();
-    audio = document.getElementById('audio');
-    audio.parentNode.removeChild(audio);
+    // audio = document.getElementById('audio');
+    // audio.parentNode.removeChild(audio);
 }
 
 function showSysCode(sysCode) {
