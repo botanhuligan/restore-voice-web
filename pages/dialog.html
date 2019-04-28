@@ -21,7 +21,7 @@
     <script>
         function start() {
             fetch('/back/start', {method: 'GET'})
-                .then(response => response.body())
+                .then(handleVoiceResponse)
                 .then(playSound)
         }
 
@@ -39,21 +39,14 @@
             au.show()
 
             fetch('/back/voice', {method: 'POST', credentials: 'include', body: blob})
-                .then(response => {
-                    const reader = response.body.getReader();
-                    // read() returns a promise that resolves
-                    // when a value has been received
-                    return reader
-                        .read()
-                        .then((result) => {
-                            return result;
-                        });
+                .then(handleVoiceResponse)
+                .then(data => {
+                    playSound(data)
+                    fetch('/back/get_dialog', {method: 'GET', credentials: 'include'})
+                        .then(response => response.json())
+                        .then(addDialogMessage)
                 })
-                .then(playSound)
 
-            fetch('/back/get_text', {method: 'GET', credentials: 'include'})
-                .then(response => response.json())
-                .then(addDialogMessage)
         }
 
         function onRecordStop() {
@@ -74,6 +67,17 @@
             message.appendChild(input_phrase)
             message.appendChild(text_to_show)
             $('#dialog')[0].appendChild(message)
+        }
+
+        function handleVoiceResponse(response) {
+            const reader = response.body.getReader();
+            // read() returns a promise that resolves
+            // when a value has been received
+            return reader
+                .read()
+                .then((result) => {
+                    return result;
+                });
         }
 
         function playSound(data) {
