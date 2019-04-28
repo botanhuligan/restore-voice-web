@@ -1,12 +1,5 @@
 BN = BigNumber
 
-// TODO: to other conf file
-let infuraProjectAddress = "https://ropsten.infura.io/v3/"
-let wsInfuraProjectAddress = 'wss://ropsten.infura.io/ws/v3/'
-let smartContractAddress = ""
-let testWallet = ""
-let privKey = ""
-
 // Check balance and connection
 web3 = new Web3(infuraProjectAddress)
 web3.eth.getBalance(testWallet)

@@ -30,8 +30,16 @@ body {
 
 .input {
     width: 500px;
+    color: rgb(232, 191, 106);
     border-color: rgb(232, 191, 106);
     background-color: rgb(60, 63, 65);
+}
+
+.input:focus {
+    color: rgb(232, 191, 106);
+    border-color: rgb(204, 120, 50);
+    background-color: rgb(60, 63, 65);
+    box-shadow: none;
 }
 
 .button {
@@ -51,6 +59,10 @@ body {
 
 .hash-button:hover {
     color: rgb(232, 191, 106);
+}
+
+.hash {
+    color: rgb(106, 135, 89);
 }
 
 .text-to-read {
